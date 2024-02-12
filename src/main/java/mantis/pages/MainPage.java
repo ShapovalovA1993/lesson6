@@ -15,6 +15,12 @@ public class MainPage {
 
     @FindBy(css = "a[href='/mantisbt/view_all_bug_page.php']")
     private WebElement viewIssuesPageButton;
+    @FindBy(css = "a[href='/mantisbt/bug_report_page.php']")
+    private WebElement reportIssuePageButton;
+    @FindBy(xpath = "//a[@class='dropdown-toggle']")
+    private WebElement dropDownToggle;
+    @FindBy(css = "a[href='/mantisbt/logout_page.php']")
+    private WebElement logoutButton;
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -28,5 +34,14 @@ public class MainPage {
 
     public void goToViewIssuesPage() {
         viewIssuesPageButton.click();
+    }
+
+    public void goToReportIssuePage() {
+        reportIssuePageButton.click();
+    }
+
+    public void logout() {
+        dropDownToggle.click();
+        logoutButton.click();
     }
 }
